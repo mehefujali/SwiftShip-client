@@ -1,7 +1,10 @@
 import logo from "@/assets/images/logo.png"
 import { NavLink } from "react-router";
-import { Button } from "../ui/button";
+
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
+
+import AvatarDropdown from "../modules/navbar/AvatarDropdown";
+import { ModeToggle } from "../ui/ModeToggoler";
 type TNavelinks = { label: string, path: string }[]
 
 
@@ -27,21 +30,23 @@ const Navbar = () => {
                         <div className=" flex items-center gap-2">
                               <img className=" w-14" src={logo} alt="" />
                               <div className="">
-                                    <h2 className="text-2xl font-bold text-accent">Swift Ship</h2>
-                                    <p className=" -mt-1 text-sm text-accent flex items-center gap-2">
+                                    <h2 className="text-2xl font-bold text-foreground">Swift Ship</h2>
+                                    <p className=" -mt-1 text-sm text-foreground flex items-center gap-2">
                                           Fast&secure< IoShieldCheckmarkSharp className=" text-green-500 " />
                                     </p>
                               </div>
                         </div>
 
-                        <ul className=" hidden text-lg gap-4 text-accent md:flex">
+                        <ul className=" hidden text-lg gap-4 text-foreground md:flex">
                               {
                                     navlinks.map(nav => <NavLink className={({ isActive }) => ` ${isActive && "text-primary"}`} to={nav.path}>{nav.label}</NavLink>)
                               }
                         </ul>
 
-                        <div>
-                              <Button className="text-white rounded-none hover:bg-secondary  duration-300    cursor-pointer">New percel</Button>
+                        <div className=" flex gap-2">
+                              <ModeToggle />
+                              {/* <Button className="text-white rounded-none hover:bg-secondary  duration-300    cursor-pointer">Sign In</Button> */}
+                              <AvatarDropdown />
                         </div>
 
                   </div>

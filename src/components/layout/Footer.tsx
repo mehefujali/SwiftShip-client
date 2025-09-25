@@ -2,7 +2,7 @@ import logo from "@/assets/images/logo.png"
 
 const Footer = () => {
       return (
-            <footer className="bg-accent text-white">
+            <footer className="bg-gray-700 text-white">
                   {/* Container */}
                   <div className="container mx-auto px-6 py-10">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
