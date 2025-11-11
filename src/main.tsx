@@ -1,15 +1,21 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { RouterProvider } from "react-router-dom";
 
-import { RouterProvider } from 'react-router'
-import { router } from './routes/router.tsx'
-import { ThemeProvider } from './providers/theme-provider.tsx'
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import { Toaster } from "./components/ui/sonner";
+import { ThemeProvider } from "./providers/ThemeProvider";
+import { router } from "./routes/router";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <ThemeProvider defaultTheme='system'>
-      <RouterProvider router={router} />
-    </ThemeProvider>
-  </StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <ThemeProvider defaultTheme="system" storageKey="swift-ship-theme">
+        <RouterProvider router={router} />
+        <Toaster richColors />
+      </ThemeProvider>
+    </Provider>
+  </React.StrictMode>
+);
